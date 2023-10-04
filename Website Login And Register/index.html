@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="index.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WEBSITE</title>
+</head>
+<body>
+    
+    <div class="overlay"></div>
+
+    <header>
+        <div class="logo"><h1>Logo</h1></div>
+        <div class="anchors">
+            <ul>
+                <li><a href="">Home</a></li>
+                <li><a href="">About</a></li>
+                <li><a href="">Service</a></li>
+                <li><a href="">Contact</a></li>
+                <li class="login login_a"><a href="">Login</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <div class="forms">
+        <div class="loginform">
+            <div class="exit"><img src="close.png" alt="" class="exit_btn"></div>
+            <h1>Login</h1>
+            <form class="loginForm">
+                <div class="email">
+                    <input type="text" placeholder="Email">
+                    <img src="mail.png" alt="">
+                </div>
+                <div>
+                    <input type="password" placeholder="Password">
+                    <img src="key.png" alt="">
+                </div>
+                <div class="options">
+                    <div>
+                        <input type="checkbox">
+                        <span>Rememeber me</span>
+                    </div>
+                    <div>
+                        <a href="">Forgot Password?</a>
+                    </div>
+                </div>
+                <div class="button">
+                    <input type="submit" value="Login">
+                </div>
+                <div class="register">
+                    <p>Don't have an account? <a href="" class="signup_a">Register</a></p>
+                </div>
+            </form>
+        </div>
+
+        <div class="register_form loginform none">
+            <div class="exit"><img src="close.png" alt="" class="exit_btn"></div>
+            <h1>Register</h1>
+            <form class="loginForm">
+                <div class="email">
+                    <input type="text" placeholder="Email">
+                    <img src="mail.png" alt="">
+                </div>
+                <div class="email">
+                    <input type="password" placeholder="Password">
+                    <img src="key.png" alt="">
+                </div>
+                <div>
+                    <input type="password" placeholder="Confirm Password">
+                    <img src="key.png" alt="">
+                </div>
+                <div class="options options_2">
+                    <div>
+                        <input type="checkbox">
+                        <span>I have read and accept our <a href="">Terms</a> and <a href="">Privacy Policy</a></span>
+                    </div>
+                    <div>
+                        <input type="checkbox">
+                        <span>Send me email and notifications</span>
+                    </div>
+                </div>
+                <div class="button">
+                    <input type="submit" value="Register">
+                </div>
+                <div class="register">
+                    <p>Already have an account? <a href="" class="login_a">Login</a></p>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+
+
+    <script>
+
+        const allLogins = document.querySelectorAll(".login_a");
+
+        const allSignUps = document.querySelectorAll(".signup_a");
+
+        allSignUps.forEach(eachLinks => {
+            eachLinks.addEventListener("click", e => {
+                e.preventDefault();
+                const loginForm = document.querySelector(".loginform");
+                const registerForm = document.querySelector(".register_form");
+                loginForm.style.transform = "scale(0.5)";
+                loginForm.style.opacity = "0";
+
+                registerForm.style.transform = "scale(1)";
+                registerForm.style.opacity = 1;
+            })
+        })
+
+        allLogins.forEach(eachLinks => {
+            eachLinks.addEventListener("click", e => {
+                e.preventDefault();
+                const loginForm = document.querySelector(".loginform");
+                const registerForm = document.querySelector(".register_form");
+                loginForm.style.transform = "scale(1)";
+                loginForm.style.opacity = "1";
+
+                registerForm.style.transform = "scale(0)";
+                registerForm.style.opacity = 0;
+            })
+        })
+
+        const exitBtn = document.querySelectorAll(".exit_btn");
+        exitBtn.forEach(exit => {
+            exit.addEventListener("click", e => {
+                const loginForm = document.querySelector(".loginform");
+                const registerForm = document.querySelector(".register_form");
+                loginForm.style.transform = "scale(0)";
+                loginForm.style.opacity = "0";
+
+                registerForm.style.transform = "scale(0)";
+                registerForm.style.opacity = 0;
+            })
+        })
+
+    </script>
+
+
+</body>
+</html>
